@@ -21,11 +21,11 @@ tryCatch({
 })
 
 tryCatch({
-  source("global.R")
-  source("ui.R")
-  if (!exists("ui")) stop("ui.R must define a variable 'ui'")
-  source("server.R")
-  if (!exists("server")) stop("server.R must define a variable 'server'")
+  source("functions.R")
+  source("userinterface.R")
+  if (!exists("userinterface")) stop("userinterface.R must define a variable 'ui'")
+  source("backend.R")
+  if (!exists("backend")) stop("backend.R must define a variable 'server'")
   shinyApp(ui = ui, server = server)
 }, error = function(e) {
   message("An error occurred while starting the Shiny app:")
